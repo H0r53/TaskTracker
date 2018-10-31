@@ -10,9 +10,9 @@ USE tasktracker;
 
 
 
---------------------------------------------------------------
--- Create table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create table
+-- -----------------
 
 
 
@@ -40,9 +40,9 @@ CONSTRAINT fk_notifications_CommentID_comments_CommentID FOREIGN KEY (CommentID)
 );
 
 
---------------------------------------------------------------
--- Create default SCRUD sprocs for this table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create default SCRUD sprocs for this table
+-- -----------------
 
 
 DELIMITER //
@@ -98,7 +98,7 @@ CREATE PROCEDURE `tasktracker`.`usp_notifications_Add`
 BEGIN
 	INSERT INTO `notifications` (NotificationTypeID,AccountID,CreateDate,SeenDate,Seen,TaskID,ProjectID,CommentID)
 	VALUES (paramNotificationTypeID, paramAccountID, paramCreateDate, paramSeenDate, paramSeen, paramTaskID, paramProjectID, paramCommentID);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;

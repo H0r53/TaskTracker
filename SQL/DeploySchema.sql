@@ -11,7 +11,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -25,7 +25,7 @@ CONSTRAINT pk_commentstatustypes_CommentStatusTypeID PRIMARY KEY (CommentStatusT
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -64,7 +64,7 @@ CREATE PROCEDURE `tasktracker`.`usp_commentstatustypes_Add`
 BEGIN
 	INSERT INTO `commentstatustypes` (CommentStatusType,Description)
 	VALUES (paramCommentStatusType, paramDescription);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;
@@ -132,7 +132,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -146,7 +146,7 @@ CONSTRAINT pk_notificationtypes_NotificationTypeID PRIMARY KEY (NotificationType
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -185,7 +185,7 @@ CREATE PROCEDURE `tasktracker`.`usp_notificationtypes_Add`
 BEGIN
 	INSERT INTO `notificationtypes` (Notification,Description)
 	VALUES (paramNotification, paramDescription);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;
@@ -253,7 +253,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -268,7 +268,7 @@ CONSTRAINT pk_permissions_PermissionID PRIMARY KEY (PermissionID)
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -310,7 +310,7 @@ CREATE PROCEDURE `tasktracker`.`usp_permissions_Add`
 BEGIN
 	INSERT INTO `permissions` (PermissionName,Description,CreateDate)
 	VALUES (paramPermissionName, paramDescription, paramCreateDate);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;
@@ -382,7 +382,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -396,7 +396,7 @@ CONSTRAINT pk_projectcategorytypes_ProjectCategoryTypeID PRIMARY KEY (ProjectCat
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -435,7 +435,7 @@ CREATE PROCEDURE `tasktracker`.`usp_projectcategorytypes_Add`
 BEGIN
 	INSERT INTO `projectcategorytypes` (ProjectCategoryType,Description)
 	VALUES (paramProjectCategoryType, paramDescription);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;
@@ -503,7 +503,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -517,7 +517,7 @@ CONSTRAINT pk_roles_RoleID PRIMARY KEY (RoleID)
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -556,7 +556,7 @@ CREATE PROCEDURE `tasktracker`.`usp_roles_Add`
 BEGIN
 	INSERT INTO `roles` (Role,Description)
 	VALUES (paramRole, paramDescription);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;
@@ -625,7 +625,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -639,7 +639,7 @@ CONSTRAINT pk_statustypes_StatusTypeID PRIMARY KEY (StatusTypeID)
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -678,7 +678,7 @@ CREATE PROCEDURE `tasktracker`.`usp_statustypes_Add`
 BEGIN
 	INSERT INTO `statustypes` (Status,Description)
 	VALUES (paramStatus, paramDescription);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;
@@ -746,7 +746,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -764,7 +764,7 @@ CONSTRAINT fk_rolestopermissions_PermissionID_permissions_PermissionID FOREIGN K
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -803,7 +803,7 @@ CREATE PROCEDURE `tasktracker`.`usp_rolestopermissions_Add`
 BEGIN
 	INSERT INTO `rolestopermissions` (RoleID,PermissionID)
 	VALUES (paramRoleID, paramPermissionID);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;
@@ -871,7 +871,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -885,7 +885,7 @@ CONSTRAINT pk_tasktypes_TaskTypeID PRIMARY KEY (TaskTypeID)
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -924,7 +924,7 @@ CREATE PROCEDURE `tasktracker`.`usp_tasktypes_Add`
 BEGIN
 	INSERT INTO `tasktypes` (TaskType,Description)
 	VALUES (paramTaskType, paramDescription);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;
@@ -991,7 +991,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -1005,7 +1005,7 @@ CONSTRAINT pk_teams_TeamID PRIMARY KEY (TeamID)
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -1044,7 +1044,7 @@ CREATE PROCEDURE `tasktracker`.`usp_teams_Add`
 BEGIN
 	INSERT INTO `teams` (Name,Description)
 	VALUES (paramName, paramDescription);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;
@@ -1115,7 +1115,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -1139,7 +1139,7 @@ CONSTRAINT fk_accounts_RoleID_roles_RoleID FOREIGN KEY (RoleID) REFERENCES roles
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -1202,7 +1202,7 @@ CREATE PROCEDURE `tasktracker`.`usp_accounts_Add`
 BEGIN
 	INSERT INTO `accounts` (FirstName,LastName,Email,Password,Bio,RoleID,ImgURL,DateOfBirth,Location,CreateDate)
 	VALUES (paramFirstName, paramLastName, paramEmail, paramPassword, paramBio, paramRoleID, paramImgURL, paramDateOfBirth, paramLocation, paramCreateDate);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;
@@ -1310,7 +1310,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -1331,7 +1331,7 @@ CONSTRAINT fk_messages_RecipientAccountID_accounts_AccountID FOREIGN KEY (Recipi
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -1379,7 +1379,7 @@ CREATE PROCEDURE `tasktracker`.`usp_messages_Add`
 BEGIN
 	INSERT INTO `messages` (Description,SenderAccountID,RecipientAccountID,SentDate,Seen)
 	VALUES (paramDescription, paramSenderAccountID, paramRecipientAccountID, paramSentDate, paramSeen);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;
@@ -1461,7 +1461,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -1483,7 +1483,7 @@ CONSTRAINT fk_projects_ProjectCategoryID_projcattypes_ProjectCategoryTypeID FORE
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -1534,7 +1534,7 @@ CREATE PROCEDURE `tasktracker`.`usp_projects_Add`
 BEGIN
 	INSERT INTO `projects` (ProjectName,ProjectDescription,ImgURL,ProjectURL,ProjectLeadAccountID,ProjectCategoryID)
 	VALUES (paramProjectName, paramProjectDescription, paramImgURL, paramProjectURL, paramProjectLeadAccountID, paramProjectCategoryID);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;
@@ -1622,7 +1622,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -1636,7 +1636,7 @@ CONSTRAINT pk_prioritytypes_PriorityTypeID PRIMARY KEY (PriorityTypeID)
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -1675,7 +1675,7 @@ CREATE PROCEDURE `tasktracker`.`usp_prioritytypes_Add`
 BEGIN
 	INSERT INTO `prioritytypes` (PriorityType,Description)
 	VALUES (paramPriorityType, paramDescription);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;
@@ -1748,7 +1748,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -1783,7 +1783,7 @@ CONSTRAINT fk_tasks_ProjectID_projects_ProjectID FOREIGN KEY (ProjectID) REFEREN
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -1849,7 +1849,7 @@ CREATE PROCEDURE `tasktracker`.`usp_tasks_Add`
 BEGIN
 	INSERT INTO `tasks` (TaskName,Description,AssigneeAccountID,ReporterAccountID,StatusTypeID,TaskTypeID,PriorityTypeID,ProjectID,CreateDate,CloseDate,ReopenDate)
 	VALUES (paramTaskName, paramDescription, paramAssigneeAccountID, paramReporterAccountID, paramStatusTypeID, paramTaskTypeID, paramPriorityTypeID, paramProjectID, paramCreateDate, paramCloseDate, paramReopenDate);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;
@@ -1963,7 +1963,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -1987,7 +1987,7 @@ CONSTRAINT fk_comments_CommentStatusTypeID_comstattypes_CommentStatusTypeID FORE
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -2038,7 +2038,7 @@ CREATE PROCEDURE `tasktracker`.`usp_comments_Add`
 BEGIN
 	INSERT INTO `comments` (Description,AccountID,TaskID,CommentStatusTypeID,CreateDate,EditDate)
 	VALUES (paramDescription, paramAccountID, paramTaskID, paramCommentStatusTypeID, paramCreateDate, paramEditDate);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;
@@ -2126,7 +2126,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -2156,7 +2156,7 @@ CONSTRAINT fk_notifications_CommentID_comments_CommentID FOREIGN KEY (CommentID)
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -2213,7 +2213,7 @@ CREATE PROCEDURE `tasktracker`.`usp_notifications_Add`
 BEGIN
 	INSERT INTO `notifications` (NotificationTypeID,AccountID,CreateDate,SeenDate,Seen,TaskID,ProjectID,CommentID)
 	VALUES (paramNotificationTypeID, paramAccountID, paramCreateDate, paramSeenDate, paramSeen, paramTaskID, paramProjectID, paramCommentID);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;
@@ -2311,7 +2311,7 @@ USE tasktracker;
 
 
 
--- Create table
+-- ----------------- Create table
 
 
 
@@ -2329,7 +2329,7 @@ CONSTRAINT fk_teamstoaccounts_AccountID_accounts_AccountID FOREIGN KEY (AccountI
 
 
 
--- Create default SCRUD sprocs for this table
+-- ----------------- Create default SCRUD sprocs for this table
 
 
 
@@ -2368,7 +2368,7 @@ CREATE PROCEDURE `tasktracker`.`usp_teamstoaccounts_Add`
 BEGIN
 	INSERT INTO `teamstoaccounts` (TeamID,AccountID)
 	VALUES (paramTeamID, paramAccountID);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;

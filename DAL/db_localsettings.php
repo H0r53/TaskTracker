@@ -1,6 +1,6 @@
 <?php
 	$servername = "localhost";
-	$username = "root";
-	$password = "";
+	$username = "taskwebapp";
+	$password = "password";
 	$dbname = "tasktracker";
 ?>

@@ -10,9 +10,9 @@ USE tasktracker;
 
 
 
---------------------------------------------------------------
--- Create table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create table
+-- -----------------
 
 
 
@@ -34,9 +34,9 @@ CONSTRAINT fk_comments_CommentStatusTypeID_comstattypes_CommentStatusTypeID FORE
 );
 
 
---------------------------------------------------------------
--- Create default SCRUD sprocs for this table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create default SCRUD sprocs for this table
+-- -----------------
 
 
 DELIMITER //
@@ -86,7 +86,7 @@ CREATE PROCEDURE `tasktracker`.`usp_comments_Add`
 BEGIN
 	INSERT INTO `comments` (Description,AccountID,TaskID,CommentStatusTypeID,CreateDate,EditDate)
 	VALUES (paramDescription, paramAccountID, paramTaskID, paramCommentStatusTypeID, paramCreateDate, paramEditDate);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;

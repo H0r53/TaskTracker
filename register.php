@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
 include_once("Utilities/SessionManager.php");
 include_once("Utilities/Authentication.php");
 include_once("Utilities/Mailer.php");
@@ -34,11 +40,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             $confirmPassword = $_POST['exampleConfirmPassword'];
         }
     }
-    $_POST['dataLocation'] == "" ? $returnValue = false : $location = $_POST['dataLocation'];
+    $_POST['dataLocation'] == "" ? $location = "Unknown" : $location = $_POST['dataLocation'];
     $_POST['dataDOB'] == "" ? $returnValue = false : $dateofbirth = $_POST['dataDOB'];
     //bio is optional
     $bio = $_POST['dataBio'];
-    $imgurl = $_POST['dataImageURL'];
+    $_POST['dataImageURL'] == "" ? $imgurl = "/images/missing.png" : $imgurl = $_POST['dataImageURL'];
 
 
     if($returnValue)
@@ -51,7 +57,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         else {
             $currentDate = date('Y-m-d H:i:s');
             $defaultRoleId = 6; // Read Onlt role
-
             $account = Authentication::createAccount($name, $lastname, $email, $password,$bio, $defaultRoleId, $imgurl, $dateofbirth, $location, $currentDate);
             if ($account == null) {
                 // Something went wrong while attempting to create this user
@@ -123,13 +128,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="dataImageURL">Image URL</label>
+                    <label for="dataImageURL">Image URL <small class="text-muted">(optional)</small></label>
                     <input id="inputImgURL" class="form-control" name="dataImageURL" aria-describedby="emailHelp" placeholder="Enter Image URL" value="<?php if(isset($editimgurl)) echo $editimgurl; ?>">
                 </div>
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-md-6">
-                            <label for="dataLocation">Location</label>
+                            <label for="dataLocation">Location <small class="text-muted">(optional)</small></label>
                             <input id="inputLocation" class="form-control" name="dataLocation" placeholder="Location" value="<?php if(isset($editlocation)) echo $editlocation; ?>">
                         </div>
                         <div class="col-md-6" id="divDOB">
@@ -277,7 +282,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             $("#inputConfirmPassword").removeClass("is-valid");
             isValid = false;
         }
-        if(imgURL.length > 0)
+        /*if(imgURL.length > 0)
         {
             $("#inputImgURL").addClass("is-valid");
             $("#inputImgURL").removeClass("is-invalid");
@@ -287,9 +292,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             $("#inputImgURL").addClass("is-invalid");
             $("#inputImgURL").removeClass("is-valid");
             isValid = false;
-        }
+    	}*/
 
-        if(location.length > 0)
+        /*if(location.length > 0)
         {
             $("#inputLocation").addClass("is-valid");
             $("#inputLocation").removeClass("is-invalid");
@@ -299,7 +304,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             $("#inputLocation").addClass("is-invalid");
             $("#inputLocation").removeClass("is-valid");
             isValid = false;
-        }
+    	}*/
         if(dob.length > 0)
         {
             $("#inputDOB").addClass("is-valid");
@@ -311,7 +316,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             $("#inputDOB").removeClass("is-valid");
             isValid = false;
         }
-        if(bio.length > 0)
+        /*if(bio.length > 0)
         {
             $("#inputBio").addClass("is-valid");
             $("#inputBio").removeClass("is-invalid");
@@ -321,7 +326,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             $("#inputBio").addClass("is-invalid");
             $("#inputBio").removeClass("is-valid");
             isValid = false;
-        }
+    }*/
         return isValid;
     }
 </script>

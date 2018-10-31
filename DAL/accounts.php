@@ -274,7 +274,7 @@ class Accounts {
             return $arr;
         }
         else {
-            die("The query yielded zero results.No rows found.");
+            return array();
         }
     }
 
@@ -317,7 +317,7 @@ class Accounts {
             return $arr;
         }
         else {
-            die("The query yielded zero results.No rows found.");
+            return array();
         }
     }
     public static function lookup($paramEmail) {

@@ -10,9 +10,9 @@ USE tasktracker;
 
 
 
---------------------------------------------------------------
--- Create table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create table
+-- -----------------
 
 
 
@@ -24,9 +24,9 @@ CONSTRAINT pk_prioritytypes_PriorityTypeID PRIMARY KEY (PriorityTypeID)
 );
 
 
---------------------------------------------------------------
--- Create default SCRUD sprocs for this table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create default SCRUD sprocs for this table
+-- -----------------
 
 
 DELIMITER //
@@ -64,7 +64,7 @@ CREATE PROCEDURE `tasktracker`.`usp_prioritytypes_Add`
 BEGIN
 	INSERT INTO `prioritytypes` (PriorityType,Description)
 	VALUES (paramPriorityType, paramDescription);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;

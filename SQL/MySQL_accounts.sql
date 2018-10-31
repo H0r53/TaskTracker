@@ -10,9 +10,9 @@ USE tasktracker;
 
 
 
---------------------------------------------------------------
--- Create table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create table
+-- -----------------
 
 
 
@@ -34,9 +34,9 @@ CONSTRAINT fk_accounts_RoleID_roles_RoleID FOREIGN KEY (RoleID) REFERENCES roles
 );
 
 
---------------------------------------------------------------
--- Create default SCRUD sprocs for this table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create default SCRUD sprocs for this table
+-- -----------------
 
 
 DELIMITER //
@@ -98,7 +98,7 @@ CREATE PROCEDURE `tasktracker`.`usp_accounts_Add`
 BEGIN
 	INSERT INTO `accounts` (FirstName,LastName,Email,Password,Bio,RoleID,ImgURL,DateOfBirth,Location,CreateDate)
 	VALUES (paramFirstName, paramLastName, paramEmail, paramPassword, paramBio, paramRoleID, paramImgURL, paramDateOfBirth, paramLocation, paramCreateDate);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;

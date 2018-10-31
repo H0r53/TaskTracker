@@ -10,9 +10,9 @@ USE tasktracker;
 
 
 
---------------------------------------------------------------
--- Create table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create table
+-- -----------------
 
 
 
@@ -28,9 +28,9 @@ CONSTRAINT fk_teamstoaccounts_AccountID_accounts_AccountID FOREIGN KEY (AccountI
 );
 
 
---------------------------------------------------------------
--- Create default SCRUD sprocs for this table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create default SCRUD sprocs for this table
+-- -----------------
 
 
 DELIMITER //
@@ -68,7 +68,7 @@ CREATE PROCEDURE `tasktracker`.`usp_teamstoaccounts_Add`
 BEGIN
 	INSERT INTO `teamstoaccounts` (TeamID,AccountID)
 	VALUES (paramTeamID, paramAccountID);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;

@@ -10,9 +10,9 @@ USE tasktracker;
 
 
 
---------------------------------------------------------------
--- Create table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create table
+-- -----------------
 
 
 
@@ -24,9 +24,9 @@ CONSTRAINT pk_teams_TeamID PRIMARY KEY (TeamID)
 );
 
 
---------------------------------------------------------------
--- Create default SCRUD sprocs for this table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create default SCRUD sprocs for this table
+-- -----------------
 
 
 DELIMITER //
@@ -64,7 +64,7 @@ CREATE PROCEDURE `tasktracker`.`usp_teams_Add`
 BEGIN
 	INSERT INTO `teams` (Name,Description)
 	VALUES (paramName, paramDescription);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;

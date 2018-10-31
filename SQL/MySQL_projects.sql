@@ -10,9 +10,9 @@ USE tasktracker;
 
 
 
---------------------------------------------------------------
--- Create table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create table
+-- -----------------
 
 
 
@@ -32,9 +32,9 @@ CONSTRAINT fk_projects_ProjectCategoryID_projcattypes_ProjectCategoryTypeID FORE
 );
 
 
---------------------------------------------------------------
--- Create default SCRUD sprocs for this table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create default SCRUD sprocs for this table
+-- -----------------
 
 
 DELIMITER //
@@ -84,7 +84,7 @@ CREATE PROCEDURE `tasktracker`.`usp_projects_Add`
 BEGIN
 	INSERT INTO `projects` (ProjectName,ProjectDescription,ImgURL,ProjectURL,ProjectLeadAccountID,ProjectCategoryID)
 	VALUES (paramProjectName, paramProjectDescription, paramImgURL, paramProjectURL, paramProjectLeadAccountID, paramProjectCategoryID);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;

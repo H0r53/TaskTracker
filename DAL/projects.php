@@ -226,7 +226,7 @@ class Projects {
 			return $arr;
 		}
 		else {
-			die("The query yielded zero results.No rows found.");
+			return array();
 		}
 	}
 
@@ -265,7 +265,7 @@ class Projects {
 			return $arr;
 		}
 		else {
-			die("The query yielded zero results.No rows found.");
+			return array();
 		}
 	}
 }

@@ -10,9 +10,9 @@ USE tasktracker;
 
 
 
---------------------------------------------------------------
--- Create table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create table
+-- -----------------
 
 
 
@@ -28,9 +28,9 @@ CONSTRAINT fk_rolestopermissions_PermissionID_permissions_PermissionID FOREIGN K
 );
 
 
---------------------------------------------------------------
--- Create default SCRUD sprocs for this table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create default SCRUD sprocs for this table
+-- -----------------
 
 
 DELIMITER //
@@ -68,7 +68,7 @@ CREATE PROCEDURE `tasktracker`.`usp_rolestopermissions_Add`
 BEGIN
 	INSERT INTO `rolestopermissions` (RoleID,PermissionID)
 	VALUES (paramRoleID, paramPermissionID);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;

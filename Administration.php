@@ -1,19 +1,30 @@
 <?php
 session_start();
 include_once("Utilities/SessionManager.php");
-if(SessionManager::getAccountID() == 0)
-{
-    header("location: login.php");
-}
 include "DAL/accounts.php";
-include  "DAL/projects.php";
-include  "DAL/projectcategorytypes.php";
+include "DAL/projects.php";
+include "DAL/projectcategorytypes.php";
 include "DAL/notifications.php";
 include "DAL/notificationtypes.php";
 include "DAL/rolestopermissions.php";
 include "DAL/messages.php";
 include "DAL/permissions.php";
 include "DAL/roles.php";
+
+
+$accountID = SessionManager::getAccountID();
+if($accountID == 0)
+{
+    header("location: login.php");
+} else {
+	$account = new Accounts();
+	$account->load($accountID);
+	if($account->getRoleID() != 1){
+
+		header("location: index.php");
+		die();
+	}
+}
 
 $PList = Permissions::loadall();
 $RList = Roles::loadall();  //for dropdown

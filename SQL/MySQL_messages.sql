@@ -10,9 +10,9 @@ USE tasktracker;
 
 
 
---------------------------------------------------------------
--- Create table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create table
+-- -----------------
 
 
 
@@ -31,9 +31,9 @@ CONSTRAINT fk_messages_RecipientAccountID_accounts_AccountID FOREIGN KEY (Recipi
 );
 
 
---------------------------------------------------------------
--- Create default SCRUD sprocs for this table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create default SCRUD sprocs for this table
+-- -----------------
 
 
 DELIMITER //
@@ -80,7 +80,7 @@ CREATE PROCEDURE `tasktracker`.`usp_messages_Add`
 BEGIN
 	INSERT INTO `messages` (Description,SenderAccountID,RecipientAccountID,SentDate,Seen)
 	VALUES (paramDescription, paramSenderAccountID, paramRecipientAccountID, paramSentDate, paramSeen);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;

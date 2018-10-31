@@ -10,9 +10,9 @@ USE tasktracker;
 
 
 
---------------------------------------------------------------
--- Create table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create table
+-- -----------------
 
 
 
@@ -45,9 +45,9 @@ CONSTRAINT fk_tasks_ProjectID_projects_ProjectID FOREIGN KEY (ProjectID) REFEREN
 );
 
 
---------------------------------------------------------------
--- Create default SCRUD sprocs for this table
---------------------------------------------------------------
+-- -----------------
+-- ----------------- Create default SCRUD sprocs for this table
+-- -----------------
 
 
 DELIMITER //
@@ -112,7 +112,7 @@ CREATE PROCEDURE `tasktracker`.`usp_tasks_Add`
 BEGIN
 	INSERT INTO `tasks` (TaskName,Description,AssigneeAccountID,ReporterAccountID,StatusTypeID,TaskTypeID,PriorityTypeID,ProjectID,CreateDate,CloseDate,ReopenDate)
 	VALUES (paramTaskName, paramDescription, paramAssigneeAccountID, paramReporterAccountID, paramStatusTypeID, paramTaskTypeID, paramPriorityTypeID, paramProjectID, paramCreateDate, paramCloseDate, paramReopenDate);
-	-- Return last inserted ID as result
+	-- ----------------- Return last inserted ID as result
 	SELECT LAST_INSERT_ID() as id;
 END //
 DELIMITER ;

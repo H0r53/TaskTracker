@@ -178,7 +178,7 @@ class Teamstoaccounts {
 			return $arr;
 		}
 		else {
-			die("The query yielded zero results.No rows found.");
+			return array();
 		}
 	}
 
@@ -213,7 +213,7 @@ class Teamstoaccounts {
 			return $arr;
 		}
 		else {
-			die("The query yielded zero results.No rows found.");
+			return array();
 		}
 	}
     public static function loadbyaccountid($paramAccountID) {
@@ -234,7 +234,7 @@ class Teamstoaccounts {
             return $arr;
         }
         else {
-            die("The query yielded zero results.No rows found.");
+            return array();
         }
     }
 }

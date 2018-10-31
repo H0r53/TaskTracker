@@ -214,7 +214,7 @@ class Messages {
 			return $arr;
 		}
 		else {
-			die("The query yielded zero results.No rows found.");
+			return array();
 		}
 	}
 
@@ -252,7 +252,7 @@ class Messages {
 			return $arr;
 		}
 		else {
-			die("The query yielded zero results.No rows found.");
+			return array();
 		}
 	}
     public static function loadbyrecipientaccountid($paramAccountID) {

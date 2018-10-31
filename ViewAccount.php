@@ -18,8 +18,17 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 {
     if(isset($_GET['accountid']) && is_numeric($_GET['accountid']))	//validate query string
     {
-        $accountid = $_GET['accountid'];
-        if(isset($_GET["messageid"]) && is_numeric($_GET["messageid"])){
+	    $accountid = $_GET['accountid'];
+
+
+	    if ($accountid != SessionManager::getAccountID()){
+
+		
+        	header("location:index.php");
+		die();
+	    }
+
+	    else if(isset($_GET["messageid"]) && is_numeric($_GET["messageid"])){
             $message = new Messages();
             $message->load($_GET["messageid"]);
             $message->setSeen(1);
