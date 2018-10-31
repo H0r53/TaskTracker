@@ -72,7 +72,66 @@ $alertmsg = "This product is still under active development, but feel free to tr
                 <div class="mb-0 mt-4">
                     <i class="fa fa-newspaper-o"></i> News Feed
                 </div>
-                <hr class="mt-2">
+                >
+                <hr class="mt-2"><h3>Tasks</h3>
+                <div class="card-columns">
+
+
+                    <?php
+                    $tasklist = Tasks::loadall();
+                    if(!empty($tasklist)){
+                        $counter = 0;
+                        foreach($tasklist as $task){
+                            if($counter > 5){
+                                break;  //limit number of comments
+                            }
+
+                            $project = new Projects();
+                            $project->load($task->getProjectID());
+                            ?>
+                            <!-- Example Social Card-->
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <a href="ViewTask.php?taskid=<?php echo $task->getTaskID(); ?>" title="<?php echo $task->getTaskName(); ?>">
+                                        <h3>
+                                            <?php echo $task->getTaskName(); ?>
+                                        </h3>
+                                    </a>
+                                </div>
+                                <hr class="my-0">
+                                <div class="card-body small bg-faded">
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <h6 class="mt-0 mb-1">
+                                                <blockquote class="blockquote">
+                                                    <p class="mb-0"><?php echo $task->getDescription(); ?></p>
+                                                    <footer class="blockquote-footer">
+                                                        <cite title="Source Title">
+                                                            <a href="ViewProject.php?projectid=<?php echo $project->getProjectID(); ?>" alt="<?php echo $project->getProjectName(); ?>">
+                                                                <?php echo $project->getProjectName(); ?>
+                                                            </a>
+                                                        </cite>
+                                                    </footer>
+                                                </blockquote>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer small text-muted">Posted
+                                    <?php
+                                    $date = date("l, F d y h:i:s",strtotime($task->getCreateDate()));
+                                    echo $date;
+                                    ?>
+                                </div>
+                            </div>
+                            <?php
+                            $counter = $counter + 1;
+                        } //END foreach
+                    }
+                    ?>
+
+                </div>
+                <hr class="mt-2"><h3>Comments</h3>
                 <div class="card-columns">
 
 

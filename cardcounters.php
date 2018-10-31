@@ -33,6 +33,8 @@ $session_roleid = SessionManager::getRoleID();
                 break;
         }
     }
+    /* For the sake of displaying something on the home page, combine resolved with closed */
+    $numOfClosedTasks += $numOfResolvedTasks;
 ?>
 
 <!-- Icon Cards-->
